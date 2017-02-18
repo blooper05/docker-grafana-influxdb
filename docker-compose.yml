@@ -1,1 +1,14 @@
 version: '2.1'
+
+services:
+  influxdb:
+    image: influxdb:alpine
+    volumes:
+      - influxdb-data:/var/lib/influxdb
+    ports:
+      - 8083:8083 # Admin interface port
+      - 8086:8086 # HTTP API port
+
+volumes:
+  influxdb-data:
+    driver: local
